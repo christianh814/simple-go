@@ -33,7 +33,11 @@
                 <p>Configuration File:</p>
                 <div class="alert {{ .Alert }}" role="alert">
                     <h4 class="alert-heading">{{ .Status }}</h4>
-                    <p>{{ .Config }}</p>
+                    <p>
+                        {{ range .Config }}
+                            {{ . }}<br>
+                        {{ end }}
+                    </p>
                     <hr>
                     <p class="mb-0">{{ .Msg }}</p>
                 </div>
