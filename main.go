@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/gorilla/mux"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -27,12 +28,15 @@ const IndexHtml string = "html/index.tmpl"
 const AppConfigFile string = "/etc/myapp/test.conf"
 
 func main() {
-	//Set up handler for /
-	http.HandleFunc("/", appRoot)
+	//create/register a new request multiplexer
+	router := mux.NewRouter()
+
+	//Set up router for /
+	router.HandleFunc("/", appRoot)
 
 	// try to start the app and log output
 	log.Info("Starting server on port " + HttpPort)
-	log.Fatal(http.ListenAndServe(":"+HttpPort, nil))
+	log.Fatal(http.ListenAndServe(":"+HttpPort, router))
 }
 
 // appRoot is the HTTP root of the application
