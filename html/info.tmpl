@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Sample Go</title>
+        <title>Sample Go | Info</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -28,14 +28,16 @@
         <!-- Page content-->
         <div class="container">
             <div class="text-center mt-5">
-                <h1>A Sample Go Application for Kubernetes</h1>
-                <p class="lead">A way to test reading a configMap.</p>
-                <p>Configuration File:</p>
+                <h1>Application Information</h1>
+                <p class="lead">Information about your Application Found on the System.</p>
                 <div class="alert {{ .Alert }}" role="alert">
                     <h4 class="alert-heading">{{ .Status }}</h4>
                     <p>
-                        {{ range .Config }}
-                            {{ . }}<br>
+                        {{ range $key, $value := .Info }}
+                            {{ $key }}: {{ $value }}<br>
+                            {{ if eq $key "Hostname" }}
+                                <br>
+                            {{ end }}
                         {{ end }}
                     </p>
                     <hr>
