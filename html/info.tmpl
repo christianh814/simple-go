@@ -35,9 +35,6 @@
                     <p>
                         {{ range $key, $value := .Info }}
                             {{ $key }}: {{ $value }}<br>
-                            {{ if eq $key "Hostname" }}
-                                <br>
-                            {{ end }}
                         {{ end }}
                     </p>
                     <hr>

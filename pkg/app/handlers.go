@@ -70,9 +70,7 @@ func appInfo(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles(InfoHtml))
 	info := map[string]string{
 		"Node Name": os.Getenv("MYAPP_NODE"),
-		"Node IP":   os.Getenv("MYAPP_NODEIP"),
 		"Hostname":  os.Getenv("MYAPP_NAME"),
-		"App UID":   os.Getenv("MYAPP_UID"),
 		"App IP":    os.Getenv("MYAPP_IP"),
 	}
 
