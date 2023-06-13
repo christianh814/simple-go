@@ -29,7 +29,7 @@ spec:
       source:
         repoURL: https://github.com/christianh814/simple-go
         targetRevision: '{{appBranch}}'
-        path: 'overlays/{{overlay}}'
+        path: 'deploy/overlays/{{overlay}}'
       destination:
         name: '{{overlay}}-cluster'
         namespace: 'simple-go-{{overlay}}'
