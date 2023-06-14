@@ -69,9 +69,9 @@ func appRoot(w http.ResponseWriter, r *http.Request) {
 func appInfo(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles(InfoHtml))
 	info := map[string]string{
-		"Node Name": os.Getenv("MYAPP_NODE"),
-		"Hostname":  os.Getenv("MYAPP_NAME"),
-		"App IP":    os.Getenv("MYAPP_IP"),
+		"Hostname": os.Getenv("HOSTNAME"),
+		"App IP":   os.Getenv("SIMPLE_GO_SERVICE_HOST"),
+		"App Port": os.Getenv("SIMPLE_GO_PORT_8080_TCP_PORT"),
 	}
 
 	config := Info{
