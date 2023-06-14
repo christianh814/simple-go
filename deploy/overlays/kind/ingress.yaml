@@ -8,7 +8,8 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: simple-go.7f000001.nip.io
+  #- host: simple-go.7f000001.nip.io
+  - host: simple-go.c0a801fd.nip.io
     http:
       paths:
       - path: /

@@ -11,6 +11,8 @@ spec:
         appBranch: main
       - overlay: gke
         appBranch: main
+      - overlay: kind
+        appBranch: main
   template:
     metadata:
       name: 'simple-go-{{overlay}}'
