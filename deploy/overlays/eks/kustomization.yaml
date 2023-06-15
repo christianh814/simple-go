@@ -4,3 +4,11 @@ kind: Kustomization
 resources:
 - ../../base/
 - ingress.yaml
+
+configMapGenerator:
+- files:
+  - test.conf
+  name: simple-go-config
+
+patches:
+- path: deploy-patch.yaml

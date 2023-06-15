@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-go
+spec:
+  template:
+    spec:
+      containers:
+      - image: quay.io/christianh814/simple-go:latest
+        name: simple-go
+        volumeMounts:
+        - name: config
+          mountPath: /etc/myapp
+      volumes:
+      - name: config
+        configMap:
+          name: simple-go-config
